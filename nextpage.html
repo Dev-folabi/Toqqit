@@ -17,10 +17,20 @@
         }
 
         .hero {
-            padding: 140px 20px;
+            padding: 100px 20px;
             background: linear-gradient(120deg, #1a1a2e, #0a0a0a);
             text-transform: uppercase;
             letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 150px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
@@ -132,12 +142,17 @@
             .features {
                 grid-template-columns: 1fr;
             }
+
+            .logo {
+                width: 200px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="hero">
-        <h1>Toqqit </h1>
+        <img src="logo.png" alt="Toqqit Logo" class="logo">
+        <h1>Toqqit</h1>
         <h1>The Future of Global Finance</h1>
         <p>Secure. Instant. Borderless. AI-powered transactions for individuals and businesses.</p>
         <button class="btn">Join the Newsletter</button>
@@ -145,7 +160,7 @@
     
     <div class="video-container">
         <video controls>
-            <source src="/mnt/data/Toqqit Explainer Video.mp4" type="video/mp4">
+            <source src="Toqqit Explainer Video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
