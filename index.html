@@ -29,15 +29,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 20px;
         }
 
         .funny-text {
             display: flex;
-            gap: 5px;
+            gap: 8px;
             font-weight: 800;
             text-transform: uppercase;
             color: #fff;
             margin-bottom: 10px;
+            font-size: 4vw; /* Responsive font size */
         }
 
         .funny-text span {
@@ -46,7 +48,8 @@
         }
 
         .gif-container {
-            width: 250px;
+            width: 40vw; /* Responsive width */
+            max-width: 400px; /* Limit size on large screens */
             height: auto;
         }
 
@@ -56,14 +59,24 @@
         }
 
         @keyframes randomSize {
-            0% { font-size: 20px; }
-            100% { font-size: 40px; }
+            0% { font-size: 2.5vw; } /* Responsive size */
+            100% { font-size: 5vw; }
         }
+
+        @media (max-width: 768px) {
+            .funny-text {
+                font-size: 6vw; /* Bigger on smaller screens */
+            }
+            .gif-container {
+                width: 60vw; /* Adjust size for mobile */
+            }
+        }
+
     </style>
     <script>
         setTimeout(() => {
             window.location.href = "nextpage.html";
-        }, 6000);
+        }, 5000);
 
         document.addEventListener("DOMContentLoaded", () => {
             const text = "Get Started".split("");
@@ -73,8 +86,8 @@
             text.forEach((letter, index) => {
                 const span = document.createElement("span");
                 span.textContent = letter;
-                span.style.fontSize = `${Math.random() * 40 + 20}px`;
-                span.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`;
+                span.style.fontSize = `${Math.random() * 5 + 2.5}vw`; // Random size for responsiveness
+                span.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`; // Random animation speed
                 container.appendChild(span);
             });
         });
