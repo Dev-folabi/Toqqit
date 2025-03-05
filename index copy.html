@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.gif') no-repeat center center fixed; /* Replace with your background GIF */
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .funny-text {
+            display: flex;
+            gap: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 4vw; /* Responsive font size */
+        }
+
+        .funny-text span {
+            display: inline-block;
+            animation: randomSize 1s infinite alternate ease-in-out;
+        }
+
+        .gif-container {
+            width: 40vw; /* Responsive width */
+            max-width: 400px; /* Limit size on large screens */
+            height: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes randomSize {
+            0% { font-size: 2.5vw; } /* Responsive size */
+            100% { font-size: 5vw; }
+        }
+
+        @media (max-width: 768px) {
+            .funny-text {
+                font-size: 6vw; /* Bigger on smaller screens */
+            }
+            .gif-container {
+                width: 60vw; /* Adjust size for mobile */
+            }
+        }
+
+    </style>
+    <script>
+        setTimeout(() => {
+            window.location.href = "nextpage.html";
+        }, 5000);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const text = "Get Started".split("");
+            const container = document.querySelector(".funny-text");
+
+            container.innerHTML = "";
+            text.forEach((letter, index) => {
+                const span = document.createElement("span");
+                span.textContent = letter;
+                span.style.fontSize = `${Math.random() * 5 + 2.5}vw`; // Random size for responsiveness
+                span.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`; // Random animation speed
+                container.appendChild(span);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img class="gif-container" src="funny.gif" alt="Funny GIF">
+        <div class="funny-text">Get Started</div>
+    </div>
+</body>
+</html>
